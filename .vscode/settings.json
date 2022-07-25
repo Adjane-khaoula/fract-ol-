@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"math.h": "c",
+		"fractol.h": "c"
+	},
+	"cSpell.words": [
+		"FRACTOL",
+		"kadjane",
+		"keyhook"
+	]
+}
