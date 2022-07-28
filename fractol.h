@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 16:28:01 by kadjane           #+#    #+#             */
-/*   Updated: 2022/07/25 23:00:43 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/07/28 19:35:27 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 #include <mlx.h>
 #include <math.h>
 #include<stdio.h>
-
+#define width 1000
+#define height 1000
+#define	MAX_ITER 60
+ 
 typedef struct	s_data {
 		void	*img;
 		char	*addr;
@@ -26,6 +29,11 @@ typedef struct	s_data {
 		int		endian;
 		void	*mlx;
 		void	*win;
+		float	start_reel;
+		float	end_reel;
+		float	start_imag;
+		float	end_imag;
+		int		dx;
 		}	t_data;
 
 typedef struct point 
@@ -34,22 +42,18 @@ typedef struct point
 	float	y;
 }	pt;
 
-typedef struct	s_coordinate
- {
-	int	start_reel;
-	int	end_reel;
-	int	start_imag;
-	int	end_imag;
- }	t_coordinate;
- 
-#define width 1000
-#define height 1000
-#define	MAX_ITER 80
-
 int	ft_modulo(pt point);
 pt	ft_multiple(pt z1, pt z2);
 pt	ft_add(pt	z, pt	c);
 t_data	*ft_allocation_data(t_data *data);
 int	exit_hook(int keyhook,t_data *data);
-int	close(int x, t_data *bd);
+int ft_color(int n);
+int ft_draw(t_data *data);
+int	ft_mandelbrot(pt c);
+pt	Convert_coordinate(pt cord_windows, t_data *data);
+void	my_mlx_pixel_put(t_data *data, float x, float y, int color);
+void	ft_windows(t_data *data);
+int	ft_mlx_hooks(t_data *data);
+int	keypress(int keyhook, t_data *data);
+int	close(int	keyhook,t_data *data);
 #endif
