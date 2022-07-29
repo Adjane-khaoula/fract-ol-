@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 11:04:46 by kadjane           #+#    #+#             */
-/*   Updated: 2022/07/28 19:39:00 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:30:35 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_mandelbrot(pt c)
 pt	Convert_coordinate(pt cord_windows, t_data *data)
 {
 	pt	cord_fractol;
-	
 	cord_fractol.x= (data->start_reel + ((cord_windows.x ) / width)
 		*(data->end_reel - data->start_reel));
 	cord_fractol.y= (data->start_imag + (cord_windows.y / height)
@@ -56,6 +55,7 @@ int	ft_mlx_hooks(t_data *data)
 {
 	mlx_hook(data->win,2,0,keypress,data);
 	mlx_key_hook(data->win,close,data);
+	mlx_mouse_hook(data->win, ft_zoom,data);
 	mlx_hook(data->win, 17, 0, exit_hook, data);
 	return(0);
 }
@@ -72,7 +72,7 @@ void	ft_windows(t_data *data)
 	data->end_reel = 2;
 	data->start_imag = -2;
 	data->end_imag = 2;
-	data->dx = 10;
+	data->dx = 0.2;
 	ft_draw(data);
 	mlx_loop_hook(data->mlx, ft_mlx_hooks, data);
 	mlx_loop(data->mlx);

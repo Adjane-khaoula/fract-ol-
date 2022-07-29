@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:48:52 by kadjane           #+#    #+#             */
-/*   Updated: 2022/07/27 03:26:10 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/07/29 19:52:40 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,3 +175,13 @@ int	main(void)
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_loop(vars.mlx);
 }
+
+
+
+// if (keyhook == 1)
+	// {
+	// 	mlx_pixel_put(data->mlx, data->win, x, y , 0x0000FF);
+			printf("x = %d, ",x);
+			printf("y = %d\n", y);
+		
+	// }

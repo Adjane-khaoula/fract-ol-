@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 16:28:01 by kadjane           #+#    #+#             */
-/*   Updated: 2022/07/28 19:35:27 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/07/29 19:10:36 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_data {
 		float	end_reel;
 		float	start_imag;
 		float	end_imag;
-		int		dx;
+		float	dx;		
 		}	t_data;
 
 typedef struct point 
@@ -56,4 +56,6 @@ void	ft_windows(t_data *data);
 int	ft_mlx_hooks(t_data *data);
 int	keypress(int keyhook, t_data *data);
 int	close(int	keyhook,t_data *data);
+//  int	ft_zoom(int keyhook,t_data	*data);
+ int	ft_zoom(int keyhook,int	x,int y,t_data	*data);
 #endif
