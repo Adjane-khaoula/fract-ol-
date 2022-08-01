@@ -1,28 +1,17 @@
 # _*_ MakeFile _*_
-
-CC := cc
+NAME := fractol
 CFLAGS := -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit -fsanitize=address
-SRCS =	allocation.c\ 
-		color.c\     
-		fractol.c\       
-		hook.c\       
-		math.c\       
-		zoom.c
-		
-NAME := fractol.a
+SRCS = color.c fractol.c hook.c math.c ft_strncmp.c main.c ft_render.c
 
-OBJS := $(SRCS:.c=.o)
+$(NAME) : $(SRCS)
 
 all: $(NAME)
-
-$(NAME): $(OBJS)
-	ar crs $(NAME) $(OBJS)	
-%.o : %.c
-	$(CC) $(CFLAGS) -c $(SRCS)
+	gcc $(CFLAGS)  $(SRCS) -o $(NAME)
 
 clean : 
-	rm -f *.o
+	@rm $(NAME)
+
 fclean : clean
-	rm -f $(NAME)
+
 re : fclean all
 

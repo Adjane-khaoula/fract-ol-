@@ -6,7 +6,7 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 16:28:01 by kadjane           #+#    #+#             */
-/*   Updated: 2022/07/30 19:39:51 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/08/01 23:43:50 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #define width 1000
 #define height 1000
-#define	MAX_ITER 60
+#define	MAX_ITER 80
 #define up 126
 #define down 125
 #define left 123
@@ -73,4 +73,7 @@ int	ft_move(int keyhook, t_data *data);
 int	change_color(int	keyhook,t_data *data);
 int	ft_zoom(int keyhook,int	x,int y,t_data	*data);
 int	ft_strcmp(const char *s1, const char *s2);
+int ft_RGB(int n);
+int	main(int ac, char **av);
+int	ft_julia(pt z);
 #endif
