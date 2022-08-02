@@ -6,32 +6,31 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:20:14 by kadjane           #+#    #+#             */
-/*   Updated: 2022/08/01 19:44:37 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/08/02 01:58:52 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_modulo(pt point)
+int	ft_modulo(t_pt point)
 {
-	 return (sqrt((point.x * point.x)+ (point.y * point.y)));                                                                                                                               
+	return (sqrt((point.x * point.x) + (point.y * point.y)));
 }
 
-pt	ft_multiple(pt z1, pt z2)
+t_pt	ft_multiple(t_pt z1, t_pt z2)
 {
-	pt z_multiple;
-	
+	t_pt	z_multiple;
+
 	z_multiple.x = (z1.x * z2.x) - (z1.y * z2.y);
 	z_multiple.y = (z1.x * z2.y) + (z2.x * z1.y);
 	return (z_multiple);
 }
 
-pt	ft_add(pt	z, pt	c)
+t_pt	ft_add(t_pt	z, t_pt	c)
 {
-	pt	z_add;
-	
+	t_pt	z_add;
+
 	z_add.x = z.x + c.x;
 	z_add.y = z.y + c.y;
-	return(z_add);
+	return (z_add);
 }
-
