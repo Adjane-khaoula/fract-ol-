@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   fractol_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 16:56:39 by kadjane           #+#    #+#             */
-/*   Updated: 2022/08/03 18:30:00 by kadjane          ###   ########.fr       */
+/*   Created: 2022/08/03 12:23:59 by kadjane           #+#    #+#             */
+/*   Updated: 2022/08/04 16:03:50 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_mandelbrot(t_pt c)
+int	ft_mandelbrot_bonus(t_pt c)
 {
 	t_pt	z;
 	t_pt	z_multiple;
@@ -24,59 +24,26 @@ int	ft_mandelbrot(t_pt c)
 	while (ft_modulo(z) <= 2 && n < MAX_ITER)
 	{
 		z_multiple = ft_multiple(z, z);
+		z_multiple = ft_multiple(z_multiple, z_multiple);
 		z = ft_add(z_multiple, c);
 		n++;
 	}
 	return (n);
 }
 
-int	ft_julia(t_pt z)
+int	ft_Burning_Ship(t_pt c)
 {
-	t_pt	c;
+	t_pt	z;
 	t_pt	z_multiple;
 	int		n;
 
 	n = 0;
-	c.x = -0.74543;
-	c.y = 0.11301;
+	z.x = 0;
+	z.y = 0;
 	while (ft_modulo(z) <= 2 && n < MAX_ITER)
 	{
-		z_multiple = ft_multiple(z, z);
-		z = ft_add(z_multiple, c);
-		n++;
-	}
-	return (n);
-}
-
-int	ft_julia_2(t_pt z)
-{
-	t_pt	c;
-	t_pt	z_multiple;
-	int		n;
-
-	n = 0;
-	c.x = -0.4;
-	c.y = 0.6;
-	while (ft_modulo(z) <= 2 && n < MAX_ITER)
-	{
-		z_multiple = ft_multiple(z, z);
-		z = ft_add(z_multiple, c);
-		n++;
-	}
-	return (n);
-}
-
-int	ft_julia_3(t_pt z)
-{
-	t_pt	c;
-	t_pt	z_multiple;
-	int		n;
-
-	n = 0;
-	c.x = -0.70176;
-	c.y = -0.3842;
-	while (ft_modulo(z) <= 2 && n < MAX_ITER)
-	{
+		z.x = fabsl(z.x);
+		z.y = fabsl(z.y);
 		z_multiple = ft_multiple(z, z);
 		z = ft_add(z_multiple, c);
 		n++;

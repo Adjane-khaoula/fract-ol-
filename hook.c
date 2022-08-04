@@ -6,41 +6,15 @@
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 16:40:09 by kadjane           #+#    #+#             */
-/*   Updated: 2022/08/02 01:55:18 by kadjane          ###   ########.fr       */
+/*   Updated: 2022/08/04 16:34:13 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_move(int keyhook, t_data *data)
-{
-	mlx_clear_window(data->mlx, data->win);
-	if (keyhook == RIGHT)
-	{
-		data->start_reel = data->start_reel - data->dx;
-		data->end_reel = data->end_reel - data->dx;
-	}
-	if (keyhook == LEFT)
-	{
-		data->start_reel = data->start_reel + data->dx;
-		data->end_reel = data->end_reel + data->dx;
-	}
-	if (keyhook == DOWN)
-	{
-		data->start_imag = data->start_imag - data->dx;
-		data->end_imag = data->end_imag - data->dx;
-	}
-	if (keyhook == UP)
-	{
-		data->start_imag = data->start_imag + data->dx;
-		data->end_imag = data->end_imag + data->dx;
-	}
-	ft_draw(data);
-	return (0);
-}
-
 int	ft_zoom(int keyhook, int x, int y, t_data *data)
 {
+	// printf("%d\n",keyhook);
 	t_pt	c;
 	t_pt	cv;
 
@@ -68,13 +42,17 @@ int	ft_zoom(int keyhook, int x, int y, t_data *data)
 
 int	keypress(int keyhook, t_data *data)
 {
-	if (keyhook == SPACE)
+	if (keyhook == ESC )
 	{
-		mlx_clear_window(data->mlx, data->win);
-		data->m += data->n;
-		ft_draw(data);
-	}
-	if (keyhook == ESC || keyhook == RED_CROSS)
+		free (data);
 		exit (0);
+	}
+	return (0);
+}
+
+int	cross(t_data *data)
+{
+	free (data);
+	exit (0);
 	return (0);
 }

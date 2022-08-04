@@ -1,35 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kadjane <kadjane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 22:28:52 by kadjane           #+#    #+#             */
-/*   Updated: 2022/08/03 20:59:14 by kadjane          ###   ########.fr       */
+/*   Created: 2021/08/21 17:25:34 by kadjane           #+#    #+#             */
+/*   Updated: 2022/08/04 17:10:40 by kadjane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	ft_rgb(int n)
+int	ft_strlen(const char *str)
 {
-	return (0 << 24 | (n * 10) % 255 << 16
-		| (n * 20) % 255 << 8 | (n * 30) % 255);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int	ft_color(t_data *data)
+char	*ft_strdup(char *src)
 {
-	int	color;
+	int		l;
+	int		i;
+	char	*p;
+	char	*p2;
 
-	if (data->n == MAX_ITER)
-		color = 0 ;
-	else
+	i = 0;
+	l = ft_strlen(src) + 1;
+	p = (char *)malloc(l);
+	if(!p)
+		return (NULL);
+	p2 = p;
+	while (src[i])
 	{
-		if (data->n + data->m == MAX_ITER)
-			color = 0 ;
-		else
-			color = ft_rgb(data->n + data->m);
+		*p = src[i];
+		p++;
+		i++;
 	}
-	return (color);
+	*p = '\0';
+	return (p2);
 }
